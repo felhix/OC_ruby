@@ -55,12 +55,12 @@ class Joueur < Personne
     # A faire:
     # - Calculer les dégats
     # - Affiche ce qu'il s'est passé
-    degats = 45 + self.degats_bonus
+    degats = rand(40..50) + self.degats_bonus
   end
 
   def soin
     # A faire:
-    self.points_de_vie = self.points_de_vie + 20
+    self.points_de_vie = self.points_de_vie + rand(15..25)
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
     puts "Nouvel état : #{self.info}"
@@ -68,7 +68,7 @@ class Joueur < Personne
 
   def ameliorer_degats
     # A faire:
-    self.degats_bonus = self.degats_bonus + 10
+    self.degats_bonus = self.degats_bonus + rand(5..10)
     puts "#{self.nom} se concentre !!"
     # - Augmenter les dégats bonus
     # - Affiche ce qu'il s'est passé
@@ -79,7 +79,7 @@ class Ennemi < Personne
   def degats
     # A faire:
     # - Calculer les dégats
-    degats = 5
+    degats = rand(5..10)
   end
 end
 
