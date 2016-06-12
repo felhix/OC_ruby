@@ -34,7 +34,7 @@ class Personne
     # - Détermine si la personne est toujours en_vie ou non
     self.points_de_vie = self.points_de_vie - degats_recus
     puts "#{self.nom} a perdu #{degats_recus} PV !"
-    if self.points_de_vie < 0
+    if self.points_de_vie < 1
       self.en_vie = false
     end
   end
@@ -61,6 +61,9 @@ class Joueur < Personne
   def soin
     # A faire:
     self.points_de_vie = self.points_de_vie + rand(15..25)
+    if self.points_de_vie > 100
+      self.points_de_vie = 100
+    end
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
     puts "Nouvel état : #{self.info}"
@@ -104,7 +107,7 @@ class Jeu
     # A faire:
     # - Déterminer la condition de fin du jeu
     if joueur.points_de_vie < 1
-      self.est_fini = true
+      return true
     end
     
     i = 0
@@ -114,7 +117,7 @@ class Jeu
       end
     end
     if i == 0 
-      self.est_fini = true
+      return true
     end
   end
 end
