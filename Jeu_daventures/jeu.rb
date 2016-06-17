@@ -11,7 +11,7 @@ class Personne
     # A faire:
     # - Renvoie le nom et les points de vie si la personne est en vie
     if self.en_vie == true
-      return "#{nom} (#{points_de_vie}PV)"
+      return "#{nom} (#{points_de_vie}/100 PV)"
     else 
       return "#{nom} (vaincu)"
     end
@@ -22,9 +22,13 @@ class Personne
     # A faire:
     # - Fait subir des dégats à la personne passée en paramètre
     # - Affiche ce qu'il s'est passé
-    puts "#{self.nom} attaque #{personne.nom} !!!"
-    personne.degats
-    personne.subit_attaque(degats)
+    if personne.en_vie
+      puts "#{self.nom} attaque #{personne.nom} !!!" 
+      personne.degats
+      personne.subit_attaque(degats)
+    else
+      puts "#{personne.nom} est déjà KO !"
+    end
   end
 
   def subit_attaque(degats_recus)
@@ -36,6 +40,7 @@ class Personne
     puts "#{self.nom} a perdu #{degats_recus} PV !"
     if self.points_de_vie < 1
       self.en_vie = false
+      puts "#{self.nom} est KO !"
     end
   end
 end
@@ -60,12 +65,19 @@ class Joueur < Personne
 
   def soin
     # A faire:
-    self.points_de_vie = self.points_de_vie + rand(15..25)
-    if self.points_de_vie > 100
-      self.points_de_vie = 100
-    end
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
+    points_de_vie_gagnes = rand(15..25)
+    self.points_de_vie = self.points_de_vie + points_de_vie_gagnes
+ 
+    if self.points_de_vie > 100
+      temp_PV = self.points_de_vie
+      self.points_de_vie = 100
+      puts "#{self.nom} se soigne, et a gagné #{100 - (temp_PV - points_de_vie_gagnes)} PV !"
+    else
+      puts "#{self.nom} se soigne, et a gagné #{points_de_vie_gagnes} PV !"
+    end
+
     puts "Nouvel état : #{self.info}"
   end
 
