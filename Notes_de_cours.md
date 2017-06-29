@@ -77,3 +77,4 @@ Avec l'héritage on a modélisé un lien très fort entre plusieur objets. Pour 
 - plus de trucs ici : https://openclassrooms.com/courses/lancez-vous-dans-la-programmation-avec-ruby/the-end-1
 
 .
+Ceci est un wild texte
