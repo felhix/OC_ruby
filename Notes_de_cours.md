@@ -75,3 +75,5 @@ Avec l'héritage on a modélisé un lien très fort entre plusieur objets. Pour 
 - podcast ruby : http://www.codenewbie.org/podcast
 - guide pour les gems : http://guides.rubygems.org/rubygems-basics/
 - plus de trucs ici : https://openclassrooms.com/courses/lancez-vous-dans-la-programmation-avec-ruby/the-end-1
+
+.
