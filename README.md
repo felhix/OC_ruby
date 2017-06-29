@@ -10,3 +10,5 @@ Quelques programmes d'introduction.
 ##2. Jeu d'aventures
 Un petit jeu d'aventures
 
+Ceci est un wild commentaire by féfé
+
